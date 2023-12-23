@@ -1,0 +1,43 @@
+### 中文原文：
+
+### 开场语：
+
+MySQL的binlog（二进制日志）记录着数据库的所有修改操作，用于数据恢复、主从复制等。MySQL的binlog有多种记录方式，常见的有statement-based（基于语句）、row-based（基于行）和mixed（混合模式）等。
+
+### 不同方式的解释：
+
+1. **基于语句（Statement-based）**：
+   - 这种方式记录SQL语句的执行过程，即执行了哪些SQL语句。但有些情况下，同一条SQL在不同环境下可能会有不同的执行结果，可能引发一些潜在的问题。
+
+2. **基于行（Row-based）**：
+   - 这种方式记录具体每一行数据的变化，比如插入、更新、删除操作具体影响了哪些行。相较于基于语句，它更为精确，但会产生更多的日志数据。
+
+3. **混合模式（Mixed）**：
+   - 这种方式是结合了基于语句和基于行的优势，MySQL会根据具体的情况选择使用哪种记录方式，以达到效率和准确性的平衡。
+
+### 总结语：
+
+MySQL的binlog有多种记录方式，每种方式都有其优劣点。选择合适的记录方式取决于具体应用场景和需求，需要权衡日志大小、数据精确度和性能开销等因素，以满足数据恢复和主从复制等需求。
+
+---
+
+### 英文翻译：
+
+### Introduction:
+
+MySQL's binlog (binary log) records all modifications made to a database, used for data recovery, master-slave replication, and more. There are several ways to record MySQL's binlog, commonly seen as statement-based, row-based, and mixed modes.
+
+### Explanation of Different Modes:
+
+1. **Statement-based**:
+   - This mode records the execution process of SQL statements, showing which SQL statements were executed. However, in some cases, the same SQL statement may yield different results in different environments, potentially leading to underlying issues.
+
+2. **Row-based**:
+   - This mode records changes made to each specific row of data, such as insertions, updates, and deletions and precisely indicates the affected rows. It is more accurate compared to statement-based but generates more log data.
+
+3. **Mixed Mode**:
+   - This mode combines the advantages of both statement-based and row-based modes. MySQL dynamically selects the recording method based on specific situations to balance efficiency and accuracy.
+
+### Conclusion:
+
+MySQL's binlog offers multiple recording modes, each with its own pros and cons. Choosing the appropriate recording mode depends on specific application scenarios and requirements, considering factors like log size, data accuracy, and performance overhead, to meet the needs of data recovery and master-slave replication, among others.

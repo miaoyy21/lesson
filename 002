@@ -1,0 +1,49 @@
+### 中文原文：
+
+### 开场语：
+
+雪花算法（Snowflake Algorithm）是一种用于生成唯一标识符（ID）的分布式系统中常用的算法。它通过生成64位的ID，其中包含了时间戳、机器ID和序列号等信息，确保在分布式环境下生成的ID全局唯一且有序递增。
+
+### 实现原理：
+
+1. **时间戳（41位）**：
+   - 使用41位存储时间戳，通常以毫秒为单位。这段时间戳记录了ID的生成时间，可以支持69年的使用。
+
+2. **机器ID（10位）**：
+   - 用于标识不同的机器或节点。通过配置，每个节点被分配一个唯一的10位ID。
+
+3. **序列号（12位）**：
+   - 序列号用于解决同一毫秒内生成多个ID时的冲突问题。在同一毫秒内，通过自增方式生成不同的序列号，最多可生成4096个唯一ID。
+
+4. **工作流程**：
+   - 当有新的ID生成请求时，根据当前时间戳、机器ID和序列号，按照设定规则生成64位的唯一ID。如果在同一毫秒内生成的ID数量超过了4096个，则等待下一毫秒再生成。
+
+### 总结语：
+
+雪花算法通过结合时间戳、机器ID和序列号，保证在分布式环境下生成全局唯一、趋势递增的ID。其设计简洁高效，能够满足分布式系统对唯一ID的需求，应用广泛且可靠。
+
+---
+
+### 英文翻译：
+
+### Introduction:
+
+The Snowflake Algorithm is a widely-used algorithm in distributed systems for generating unique identifiers (IDs). It generates a 64-bit ID that contains information such as a timestamp, machine ID, and sequence number, ensuring globally unique and sequentially increasing IDs in a distributed environment.
+
+### Implementation Principle:
+
+1. **Timestamp (41 bits)**:
+   - Uses 41 bits to store a timestamp, usually in milliseconds. This timestamp records the generation time of the ID and can support approximately 69 years of usage.
+
+2. **Machine ID (10 bits)**:
+   - Identifies different machines or nodes. Each node is assigned a unique 10-bit ID.
+
+3. **Sequence Number (12 bits)**:
+   - The sequence number resolves conflicts when multiple IDs are generated within the same millisecond. It increments uniquely within the same millisecond, allowing for a maximum of 4096 unique IDs.
+
+4. **Workflow**:
+   - When a new ID generation request occurs, a 64-bit unique ID is generated based on the current timestamp, machine ID, and sequence number according to specified rules. If more than 4096 IDs are generated within the same millisecond, it waits for the next millisecond to generate further IDs.
+
+### Conclusion:
+
+The Snowflake Algorithm ensures globally unique and increasingly ordered IDs in a distributed environment by combining a timestamp, machine ID, and sequence number. Its simple and efficient design meets the unique ID requirements of distributed systems, making it widely applicable and reliable.
