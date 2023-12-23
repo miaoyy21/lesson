@@ -5,7 +5,11 @@
 005. MySQL自增ID用完后怎么办
 006. MySQL索引失效的场景
 007. MySQL的表设计时是使用datetime还是timestamp
-
+008. MySQL中MyISAM和InnoDB引擎的区别
+009. Redis中keys命令存在的问题
+010. Redis中的大key的处理方式
+011. Redis突然变慢的可能原因
+012. Redis持久化的AOF和RDB的区别及其解决的场景
 
 
 
